@@ -6,7 +6,7 @@ version: '3.8'
 # ------------------------------------
 services:
   spark:
-    image: spark1
+    image: alexsuf/megaspark
     container_name: spark
     environment:
       TZ: Europe/Moscow
@@ -15,7 +15,7 @@ services:
       - 4041:4041
       - 8888:8888
     volumes:
-      - ./work:/home/work
+      - ./work:/home/jovyan/work
     restart: always
 
   postgres:
@@ -32,3 +32,4 @@ services:
     volumes:
       - ./data:/var/lib/postgresql/data
       - ./on_startup.sql:/docker-entrypoint-initdb.d/init.sql
+
