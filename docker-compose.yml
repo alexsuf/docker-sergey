@@ -1,0 +1,34 @@
+version: '3.8'
+# -------------------------------------
+# Запускаем команду: docker compose up
+#   Ищем URL в логах типа: http://127.0.0.1:8888/lab?token=18d277e9afbeb912fed2d6cd3d5286c0db6c6f74829c6f8c
+#   Открываем браузер по этой ссылке
+# ------------------------------------
+services:
+  spark:
+    image: spark1
+    container_name: spark
+    environment:
+      TZ: Europe/Moscow
+    ports:
+      - 4040:4040
+      - 4041:4041
+      - 8888:8888
+    volumes:
+      - ./work:/home/work
+    restart: always
+
+  postgres:
+    image: alexsuf/postgres
+    container_name: postgres
+    restart: always
+    ports:
+      - 1111:5432
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: secret
+      POSTGRES_DB: postgres
+      TZ: Europe/Moscow
+    volumes:
+      - ./data:/var/lib/postgresql/data
+      - ./on_startup.sql:/docker-entrypoint-initdb.d/init.sql
