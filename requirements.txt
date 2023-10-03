@@ -1,0 +1,6 @@
+pyspark
+jupyterlab
+pandas
+pyyaml
+pyarrow
+psycopg2-binary

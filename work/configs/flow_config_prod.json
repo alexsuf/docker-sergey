@@ -1,0 +1,4 @@
+{
+  "metadata_url": "postgresql://postgres:secret@localhost:1111/postgres"
+}
+

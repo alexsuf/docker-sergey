@@ -1,0 +1,4 @@
+{ "project_name": "cursrv",
+  "master_url": "postgresql://postgres:secret@localhost:1111/postgres",
+  "master_schema": "public"
+}
